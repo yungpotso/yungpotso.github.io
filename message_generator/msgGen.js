@@ -8,7 +8,7 @@ const messageObj = {
         " present you with ",
         " ponder, before giving you ",
         " begrudgingly bless you with ",
-        " bequeath unto you the finest ",
+        " bequeath unto you ",
         " dole out ",
         " impart upon you ",
         " offer up their "
@@ -30,5 +30,13 @@ function getConnector() {
     return connector;
 };
 
-console.log(getLuckLvl());
-console.log(getBlesser());
+function makeMessage(lucknum,blessnum,connectnum){
+    let message = "";
+    message += messageObj.blessings[blessnum];
+    message += messageObj.connectors[connectnum];
+    message += messageObj.luck[lucknum];
+    return message;
+}
+
+finalMessage = makeMessage(getLuckLvl(),getBlesser(),getConnector());
+console.log(finalMessage);
